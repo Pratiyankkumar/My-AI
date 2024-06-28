@@ -1,0 +1,126 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  margin: 0;
+  font-family: Poppins;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.para-container{
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hello,.how{
+  font-size: 56px;
+  font-weight: 500;
+  
+}
+@media (max-width: 500px) {
+  .hello,.how{
+    font-size: 50px;
+    font-weight: 500;
+  }
+  .hello{
+    /* margin-left: -60px; */
+  }
+  .how{
+    /* margin-left: 28px; */
+    line-height: 60px;
+    text-align: center;
+  }
+}
+.hello{
+  background: #121FCF;
+  background: linear-gradient(to right, #121FCF 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.how{
+  color: gray;
+  margin-top: -10px;
+}
+.cards-mega-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.card1,.card2,.card3,.card4{
+  margin-top: 40px;
+  width: 200px;
+  height: 200px;
+  border: 0px solid transparent;
+  border-radius: 20px;
+  background-color: #F0F4F9;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  transition: ease-in-out 300ms;
+}
+.card2,.card3,.card4{
+  margin-left: 10px;
+}
+.card1:hover,.card2:hover,.card3:hover,.card4:hover{
+  width: 210px;
+  height: 210px;
+}
+@media (max-width: 500px) {
+  .card2,.card3,.card4{
+    display: none;
+  }
+}
+.input-container{
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.input{
+  width: 694px;
+  height: 56px;
+  background-color: #F0F4F9;
+  padding-left: 20px;
+  border: 0px solid transparent;
+  border-radius: 28px;
+  font-size: 17px;
+  font-family: Poppins;
+}
+.input::placeholder{
+  font-size: 17px;
+  font-family: Poppins;
+}
+.image-container{
+  width: 60px;
+  height: 60px;
+  border: 0 solid transparent;
+  border-radius: 30px;
+  background-color: #F0F4F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.send-icon{
+  width: 30px;
+  height: 30px;
+}
+@media (max-width: 500px) {
+  .input{
+    width: 220px;
+    height: 56px;
+  }
+  .image-container{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+  }
+}
