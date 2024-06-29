@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Include Prism.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
   <title>Document</title>
 </head>
 <body>
@@ -36,20 +38,21 @@
   
 
   <div class="cards-mega-container js-card1">
-    <div class="card1">
+    <div class="card1 js-card1">
       Suggest beaches to visit in a city, including details.
     </div>
-    <div class="card2">
+    <div class="card2 js-card2">
       Write a thank you note to my colleague.
     </div>
-    <div class="card3">
+    <div class="card3 js-card3">
       Help me craft an OOO message based on a few details.
     </div>
-    <div class="card4">
+    <div class="card4 js-card4">
       Come up with a product name for a new app.
     </div>
   </div>
 
+  
   <div class="input-container">
     <input class="input js-input" type="text" placeholder="Enter Prompt here!">
     <img class="send-icon js-send-icon" src="images/send-svgrepo-com.svg" alt="">
@@ -63,6 +66,10 @@
       }
     }
   </script>
+  <!-- Include Prism.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+  <!-- Include the language syntax you need -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
   <script type="module" src="script.js"></script>
 </body>
 </html>

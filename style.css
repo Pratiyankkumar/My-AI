@@ -88,6 +88,7 @@ body{
   height: 56px;
   background-color: #F0F4F9;
   padding-left: 20px;
+  padding-right: 50px;
   border: 0px solid transparent;
   border-radius: 28px;
   font-size: 17px;
@@ -108,7 +109,7 @@ body{
 }
 @media (max-width: 500px) {
   .input{
-    width: 290px;
+    width: 270px;
     height: 56px;
   }
 }
@@ -117,7 +118,7 @@ body{
 }
 .output-container{
   margin-top: 10px;
-  width: 812px;
+  width: 900px;
   height: 500px;
   border: 0px solid transparent;
   border-radius: 10px;
@@ -131,7 +132,7 @@ body{
 @media (max-width: 500px) {
   .output-container{
     width: 300px;
-    height: 600px;
+    height: 540px;
     margin-top: 25px;
     background-color: white;
   }
@@ -169,4 +170,20 @@ body{
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track (part the thumb moves within) */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the draggable part of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovering over the thumb */
 }

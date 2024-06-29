@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
+import { marked } from 'https://cdn.jsdelivr.net/npm/marked@latest/lib/marked.esm.js';
 
 // Fetch your API_KEY
 const API_KEY = "AIzaSyAWSjsFs--G4S7IVGTgtjZBy8V_Ba3XSjs";
@@ -9,7 +9,7 @@ const API_KEY = "AIzaSyAWSjsFs--G4S7IVGTgtjZBy8V_Ba3XSjs";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 // The Gemini 1.5 models are versatile and work with most use cases
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Function to handle user input and get AI response
 async function getAIResponse() {
@@ -19,21 +19,27 @@ async function getAIResponse() {
   try {
     const result = await model.generateContent(prompt);
     const response = result.response;
-    
+
     // Check if there are candidates and handle accordingly
     if (response.candidates && response.candidates.length > 0) {
       if (response.candidates.length > 1) {
         console.warn(`This response had ${response.candidates.length} candidates. Returning text from the first candidate only. Access response.candidates directly to use the other candidates.`);
       }
-      
+
       const firstCandidate = response.candidates[0];
-      const text = (firstCandidate.content && firstCandidate.content.parts)
-        ? firstCandidate.content.parts.map(part => part.text).join("")
+      const markdownText = firstCandidate.content && firstCandidate.content.parts
+        ? firstCandidate.content.parts.map(part => {
+          if (part.text) return part.text;
+          if (part.executableCode) return `\n\`\`\`python\n${part.executableCode.code}\n\`\`\`\n`;
+          if (part.codeExecutionResult) return `\n\`\`\`\n${part.codeExecutionResult.output}\n\`\`\`\n`;
+        }).join("")
         : firstCandidate.content;
 
+      const htmlText = marked(markdownText);
+
       console.log(`User: ${prompt}`);
-      console.log(`AI: ${text}`);
-      generateHTML(prompt, text);
+      console.log(`AI: ${htmlText}`);
+      generateHTML(prompt, htmlText);
     } else {
       console.error("No candidates found in the response.");
     }
@@ -52,20 +58,24 @@ function generateHTML(prompt, text) {
       </div>
       <div class="ai-response">
         <img class="ai-image" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png" alt="">
-        <p class="response">${text}</p>
+        <div class="response">${text}</div>
       </div>
     </div>
-  `
-  document.querySelector('.js-output-container')
-    .innerHTML = html
+  `;
+  document.querySelector('.js-output-container').innerHTML = html;
+
+  // Re-run the syntax highlighter
+  if (window.Prism) {
+    Prism.highlightAll();
+  }
 }
 
-document.querySelector('.js-output-container').classList.add('visibility-off')
+document.querySelector('.js-output-container').classList.add('visibility-off');
 
 // Add event listener to the send icon button
 document.querySelector('.send-icon').addEventListener('click', () => {
   getAIResponse();
   document.querySelector('.js-card2').classList.add('visibility-off');
   document.querySelector('.js-card1').classList.add('visibility-off');
-  document.querySelector('.js-output-container').classList.remove('visibility-off')
-});
+  document.querySelector('.js-output-container').classList.remove('visibility-off');
+    });
