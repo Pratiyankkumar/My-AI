@@ -14,7 +14,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
 // ...
 
-const prompt = "Who is the president of india"
+const prompt = document.querySelector('.js-input').value;
 
 const result = await model.generateContent(prompt);
 const response = await result.response;

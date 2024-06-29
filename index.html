@@ -11,13 +11,19 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="para-container">
+  <header>
+    <div>
+      MY AI
+    </div>
+  </header>
+
+  <div class="para-container js-card2">
     <p class="hello">Hello User,</p>
     <p class="how">How Can I assist You Today?</p>
   </div>
   
 
-  <div class="cards-mega-container">
+  <div class="cards-mega-container js-card1">
     <div class="card1">
       Suggest beaches to visit in a city, including details.
     </div>
@@ -33,10 +39,8 @@
   </div>
 
   <div class="input-container">
-    <input class="input" type="text" placeholder="Enter Prompt here!">
-    <div class="image-container">
-      <img class="send-icon" src="images/send-svgrepo-com.svg" alt="">
-    </div>
+    <input class="input js-input" type="text" placeholder="Enter Prompt here!">
+    <img class="send-icon js-send-icon" src="images/send-svgrepo-com.svg" alt="">
   </div>
   
 
@@ -47,6 +51,6 @@
       }
     }
   </script>
-  <!-- <script type="module" src="script.js"></script> -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
