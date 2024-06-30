@@ -38,8 +38,8 @@
   <h2 id="installation" style="color: #333;">Installation</h2>
   <ol>
     <li><strong>Clone the repository:</strong>
-      <pre style="background-color: #272822; color: #f8f8f2; padding: 5px; border-radius: 5px;"><code class="language-sh">git clone https://github.com/your-username/ai-chatbot.git
-cd ai-chatbot</code></pre>
+      <pre style="background-color: #272822; color: #f8f8f2; padding: 5px; border-radius: 5px;"><code class="language-sh">git clone https://github.com/Pratiyankkumar/My-AI
+cd My-AI</code></pre>
     </li>
     <li><strong>Set up the API key:</strong>
       <ul>
