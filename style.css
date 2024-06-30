@@ -204,7 +204,7 @@ body{
   }
 }
 
-@media (min-width: 780px) and (max-width: 964px) {
+@media (min-width: 780px) and (max-width: 990px) {
   .how{
     text-align: center;
   }
