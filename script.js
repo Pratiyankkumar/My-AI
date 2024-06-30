@@ -50,23 +50,45 @@ async function getAIResponse() {
 
 function generateHTML(prompt, text) {
   let html = '';
-  html += `
-    <div class="output-container">
-      <div class="user-question">
-        <img class="user-image" src="https://lh3.googleusercontent.com/a/ACg8ocIt6zK9K8Mbhag_fzcDlhr9o0U8BnkXHVh5v_fJN39SErQhZ64=s64-c" alt="">
-        <p class="question">${prompt}</p>
+  if (prompt === 'Who is Pratiyank' || prompt==='Who is pratiyank') {
+    text = 'Pratiyank is the coding wizard who just escaped the clutches of school, armed with a keyboard and a dream. Currently mastering the arts of JavaScript, HTML, and CSS, Pratiyank is on a quest to conquer the web development world. When not coding, you might find him convincing his computer to laugh at his jokes. Beware: approaching Pratiyank may result in uncontrollable bouts of laughter and a sudden urge to learn coding!'
+    html += `
+      <div class="output-container">
+        <div class="user-question">
+          <img class="user-image" src="https://lh3.googleusercontent.com/a/ACg8ocIt6zK9K8Mbhag_fzcDlhr9o0U8BnkXHVh5v_fJN39SErQhZ64=s64-c" alt="">
+          <p class="question">${prompt}</p>
+        </div>
+        <div class="ai-response">
+          <img class="ai-image" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png" alt="">
+          <div class="response">${text}</div>
+        </div>
       </div>
-      <div class="ai-response">
-        <img class="ai-image" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png" alt="">
-        <div class="response">${text}</div>
-      </div>
-    </div>
-  `;
-  document.querySelector('.js-output-container').innerHTML = html;
+    `;
+    document.querySelector('.js-output-container').innerHTML = html;
 
-  // Re-run the syntax highlighter
-  if (window.Prism) {
-    Prism.highlightAll();
+    // Re-run the syntax highlighter
+    if (window.Prism) {
+      Prism.highlightAll();
+    }
+  } else {
+    html += `
+      <div class="output-container">
+        <div class="user-question">
+          <img class="user-image" src="https://lh3.googleusercontent.com/a/ACg8ocIt6zK9K8Mbhag_fzcDlhr9o0U8BnkXHVh5v_fJN39SErQhZ64=s64-c" alt="">
+          <p class="question">${prompt}</p>
+        </div>
+        <div class="ai-response">
+          <img class="ai-image" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png" alt="">
+          <div class="response">${text}</div>
+        </div>
+      </div>
+    `;
+    document.querySelector('.js-output-container').innerHTML = html;
+
+    // Re-run the syntax highlighter
+    if (window.Prism) {
+      Prism.highlightAll();
+    }
   }
 }
 
@@ -78,4 +100,5 @@ document.querySelector('.send-icon').addEventListener('click', () => {
   document.querySelector('.js-card2').classList.add('visibility-off');
   document.querySelector('.js-card1').classList.add('visibility-off');
   document.querySelector('.js-output-container').classList.remove('visibility-off');
-    });
+  document.querySelector('.js-input').value = '';
+});

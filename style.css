@@ -131,8 +131,9 @@ body{
 
 @media (max-width: 500px) {
   .output-container{
-    width: 300px;
+    width: 310px;
     height: 540px;
+    padding-bottom: 90px;
     margin-top: 25px;
     background-color: white;
   }
