@@ -188,3 +188,31 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color when hovering over the thumb */
 }
+@media (min-width: 500px) and (max-width: 780px) {
+  .card3,.card4{
+    display: none;
+  }
+  .input{
+    width: 480px;
+  }
+  .how{
+    text-align: center;
+  }
+  .output-container{
+    width: 500px;
+    height: 600px;
+  }
+}
+
+@media (min-width: 780px) and (max-width: 900px) {
+  .how{
+    text-align: center;
+  }
+  .card1,.card2,.card3,.card4{
+    display: none;
+  }
+  .output-container{
+    width: 700px;
+    height: 400px;
+  }
+}
