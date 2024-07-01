@@ -27,9 +27,6 @@ body{
     font-size: 50px;
     font-weight: 500;
   }
-  .hello{
-    /* margin-left: -60px; */
-  }
   .how{
     /* margin-left: 28px; */
     line-height: 60px;
@@ -230,4 +227,9 @@ body{
   .output-container{
     height: 380px;
   }
+}
+.loading-image{
+  width: 50px;
+  height: 50px;
+  margin-top: -7px;
 }
