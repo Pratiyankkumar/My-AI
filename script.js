@@ -116,3 +116,27 @@ document.querySelector('.send-icon').addEventListener('click', () => {
     </div>
   `
 });
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    getAIResponse();
+    document.querySelector('.js-card2').classList.add('visibility-off');
+    document.querySelector('.js-card1').classList.add('visibility-off');
+    document.querySelector('.js-output-container').classList.remove('visibility-off');
+    document.querySelector('.js-input').value = '';
+    document.querySelector('.js-output-container').innerHTML = `
+      <div class="output-container">
+          <div class="user-question">
+            <img class="user-image" src="https://lh3.googleusercontent.com/a/ACg8ocIt6zK9K8Mbhag_fzcDlhr9o0U8BnkXHVh5v_fJN39SErQhZ64=s64-c" alt="">
+            <p class="question"><img class="loading-image" src="images/Animation - 1719798943044.gif" alt=""></p>
+          </div>
+          <div class="ai-response">
+            <img class="ai-image" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png" alt="">
+            <p class="response">
+              <img class="loading-image" src="images/Animation - 1719798943044.gif" alt="">
+            </p>
+          </div>
+      </div>
+    `
+  }
+})
