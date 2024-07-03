@@ -11,13 +11,26 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 // The Gemini 1.5 models are versatile and work with most use cases
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+// Initialize session history
+if (!sessionStorage.getItem('history')) {
+  sessionStorage.setItem('history', JSON.stringify([]));
+}
+
 // Function to handle user input and get AI response
 async function getAIResponse() {
   const textInput = document.querySelector('.js-input').value || 'Welcome me';
-  const prompt = textInput;
+
+  // Retrieve session history
+  const history = JSON.parse(sessionStorage.getItem('history'));
+
+  // Add user input to history
+  history.push({ sender: 'user', message: textInput });
+
+  // Combine context and new input
+  const fullContext = history.map(entry => `${entry.sender}: ${entry.message}`).join('\n');
 
   try {
-    const result = await model.generateContent(prompt);
+    const result = await model.generateContent(fullContext);
     const response = result.response;
 
     // Check if there are candidates and handle accordingly
@@ -37,9 +50,15 @@ async function getAIResponse() {
 
       const htmlText = marked(markdownText);
 
-      console.log(`User: ${prompt}`);
+      // Add AI response to history
+      history.push({ sender: 'ai', message: htmlText });
+
+      // Update session history
+      sessionStorage.setItem('history', JSON.stringify(history));
+
+      console.log(`User: ${textInput}`);
       console.log(`AI: ${htmlText}`);
-      generateHTML(prompt, htmlText);
+      generateHTML(textInput, htmlText);
     } else {
       console.error("No candidates found in the response.");
     }
@@ -50,7 +69,7 @@ async function getAIResponse() {
 
 function generateHTML(prompt, text) {
   let html = '';
-  if (prompt === 'Who is Pratiyank' || prompt==='Who is pratiyank') {
+  if (prompt === 'Who is Pratiyank' || prompt === 'Who is pratiyank') {
     text = 'Pratiyank is the coding wizard who just escaped the clutches of school, armed with a keyboard and a dream. Currently mastering the arts of JavaScript, HTML, and CSS, Pratiyank is on a quest to conquer the web development world. When not coding, you might find him convincing his computer to laugh at his jokes. Beware: approaching Pratiyank may result in uncontrollable bouts of laughter and a sudden urge to learn coding!'
     html += `
       <div class="output-container">
@@ -139,4 +158,4 @@ document.body.addEventListener('keydown', (event) => {
       </div>
     `
   }
-})
+});
