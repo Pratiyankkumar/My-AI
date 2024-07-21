@@ -18,7 +18,7 @@ if (!sessionStorage.getItem('history')) {
 
 // Function to handle user input and get AI response
 async function getAIResponse() {
-  const textInput = document.querySelector('.js-input').value || 'Welcome me';
+  const textInput = document.querySelector('.js-input').value.toLowerCase() || 'Welcome me';
 
   // Retrieve session history
   const history = JSON.parse(sessionStorage.getItem('history'));
@@ -69,7 +69,7 @@ async function getAIResponse() {
 
 function generateHTML(prompt, text) {
   let html = '';
-  if (prompt === 'Who is Pratiyank' || prompt === 'Who is pratiyank') {
+  if (prompt === 'who is pratiyank') {
     text = 'Pratiyank is the coding wizard who just escaped the clutches of school, armed with a keyboard and a dream. Currently mastering the arts of JavaScript, HTML, and CSS, Pratiyank is on a quest to conquer the web development world. When not coding, you might find him convincing his computer to laugh at his jokes. Beware: approaching Pratiyank may result in uncontrollable bouts of laughter and a sudden urge to learn coding!'
     html += `
       <div class="output-container">
