@@ -96,9 +96,5 @@ cd My-AI</code></pre>
   <p>This project is licensed under the MIT License. See the <a href="LICENSE" style="color: #1e90ff;">LICENSE</a> file for details.</p>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-shell-session.min.js"></script>
-
 </body>
 </html>
