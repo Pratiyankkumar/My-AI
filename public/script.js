@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { marked } from 'https://cdn.jsdelivr.net/npm/marked@latest/lib/marked.esm.js';
 
 // Fetch your API_KEY
-const API_KEY = "AIzaSyAWSjsFs--G4S7IVGTgtjZBy8V_Ba3XSjs";
+const API_KEY = "AIzaSyDqj1iOifMgaoOeiEHRy0Ta2jmlzF7Amnw";
 // Reminder: This should only be for local testing
 
 // Access your API key
